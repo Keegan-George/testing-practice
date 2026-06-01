@@ -1,9 +1,5 @@
 function capitalize(str) {
-  if (str === "a") {
-    return "A";
-  } else {
-    return "B";
-  }
+  return str.toUpperCase();
 }
 
 export { capitalize };
