@@ -3,7 +3,11 @@ function capitalize(str) {
     return "";
   }
 
-  return str[0].toUpperCase() + str.slice(1);
+  try {
+    return str[0].toUpperCase() + str.slice(1);
+  } catch {
+    throw new Error("Please enter a string");
+  }
 }
 
 export { capitalize };
