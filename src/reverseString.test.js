@@ -24,6 +24,15 @@ describe("Falsy and nullish", () => {
   });
 });
 
+describe("Punctuation and whitespace", () => {
+  test.each([
+    ["@!%&*", "*&%!@"],
+    ["   ", "   "],
+  ])("reverseString(%p) => %p", (input, output) => {
+    expect(reverseString(input)).toBe(output);
+  });
+});
+
 describe("Error handling", () => {
   test("Non-string value throws Error", () => {
     expect(() => reverseString(123)).toThrow();
