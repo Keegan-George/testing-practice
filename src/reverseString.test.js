@@ -25,7 +25,7 @@ describe("Punctuation and whitespace", () => {
 });
 
 describe("Error handling", () => {
-  test.each([[undefined], [null], [123], [false]])(
+  test.each([[undefined], [null], [123], [false], [true], [[]], [{}]])(
     "reverseString(%p) => %p",
     (input) => {
       expect(() => reverseString(input)).toThrow();
