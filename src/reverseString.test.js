@@ -9,16 +9,7 @@ describe("Happy cases", () => {
     ["abba", "abba"],
     ["See you there!", "!ereht uoy eeS"],
     ["54321", "12345"],
-  ])("reverseString(%p) => %p", (input, output) => {
-    expect(reverseString(input)).toBe(output);
-  });
-});
-
-describe("Falsy and nullish", () => {
-  test.each([
     ["", ""],
-    [undefined, ""],
-    [null, ""],
   ])("reverseString(%p) => %p", (input, output) => {
     expect(reverseString(input)).toBe(output);
   });
@@ -34,7 +25,10 @@ describe("Punctuation and whitespace", () => {
 });
 
 describe("Error handling", () => {
-  test("Non-string value throws Error", () => {
-    expect(() => reverseString(123)).toThrow();
-  });
+  test.each([[undefined], [null], [123], [false]])(
+    "reverseString(%p) => %p",
+    (input) => {
+      expect(() => reverseString(input)).toThrow();
+    },
+  );
 });

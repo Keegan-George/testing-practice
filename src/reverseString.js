@@ -1,10 +1,6 @@
 function reverseString(str) {
-  if (!str) {
-    return "";
-  }
-
   if (typeof str !== "string") {
-    throw new Error("Please enter a string");
+    throw new TypeError("reverseString expects a string");
   }
 
   return str.split("").reverse().join("");
