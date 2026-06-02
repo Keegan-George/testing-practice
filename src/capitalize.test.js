@@ -7,6 +7,7 @@ describe("Happy cases", () => {
     ["b", "B"],
     ["A", "A"],
     ["it", "It"],
+    ["   ", "   "],
   ])("capitalize(%p) => %p", (input, output) => {
     expect(capitalize(input)).toBe(output);
   });
