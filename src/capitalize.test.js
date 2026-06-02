@@ -1,50 +1,36 @@
 import { capitalize } from "./capitalize";
-import { test, expect } from "@jest/globals";
+import { test, expect, describe } from "@jest/globals";
 
-test("Convert lowercase letter to uppercase - 'a' to 'A'", () => {
-  expect(capitalize("a")).toBe("A");
+describe("Happy cases", () => {
+  test.each([
+    ["a", "A"],
+    ["b", "B"],
+    ["A", "A"],
+    ["it", "It"],
+  ])("capitalize(%p) => %p", (input, output) => {
+    expect(capitalize(input)).toBe(output);
+  });
 });
 
-test("Convert lowercase letter to uppercase - 'b' to 'B'", () => {
-  expect(capitalize("b")).toBe("B");
+describe("Falsy and nullish", () => {
+  test.each([
+    ["", ""],
+    [undefined, ""],
+    [null, ""],
+  ])("capitalize(%p) => %p", (input, output) => {
+    expect(capitalize(input)).toBe(output);
+  });
 });
 
-test("An uppercase letter remains uppercase - 'A' is 'A'", () => {
-  expect(capitalize("A")).toBe("A");
-});
-
-test("First letter to uppercase in a two character string", () => {
-  expect(capitalize("it")).toBe("It");
-});
-
-test("First character is a number", () => {
-  expect(capitalize("1st place")).toBe("1st place");
-});
-
-test("First character is punctuation", () => {
-  expect(capitalize("...and you'll never know")).toMatch(
-    "...and you'll never know",
-  );
-});
-
-test("First character is whitespace", () => {
-  expect(capitalize("   congratulations  ")).toBe("   congratulations  ");
-});
-
-test("Empty string", () => {
-  expect(capitalize("")).toBe("");
-});
-
-test("Undefined", () => {
-  expect(capitalize(undefined)).toBe("");
-});
-
-test("Null", () => {
-  expect(capitalize(null)).toBe("");
-});
-
-test("No string passed", () => {
-  expect(capitalize()).toBe("");
+describe("Non-alpha first character", () => {
+  test.each([
+    ["1st", "1st"],
+    ["2nd place", "2nd place"],
+    ["...and you'll never know", "...and you'll never know"],
+    ["   congratulations  ", "   congratulations  "],
+  ])("capitalize(%p) => %p", (input, output) => {
+    expect(capitalize(input)).toBe(output);
+  });
 });
 
 test("Non-string value throws Error", () => {
