@@ -23,3 +23,9 @@ describe("Falsy and nullish", () => {
     expect(reverseString(input)).toBe(output);
   });
 });
+
+describe("Error handling", () => {
+  test("Non-string value throws Error", () => {
+    expect(() => reverseString(123)).toThrow();
+  });
+});
