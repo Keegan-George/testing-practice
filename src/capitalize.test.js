@@ -34,3 +34,7 @@ test("First character is whitespace", () => {
 test("Empty string", () => {
   expect(capitalize("")).toMatch("");
 });
+
+test("No string passed", () => {
+  expect(capitalize()).toMatch("");
+});
