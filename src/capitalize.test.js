@@ -18,7 +18,10 @@ describe("Valid inputs", () => {
 });
 
 describe("Invalid inputs", () => {
-  test.each([[""], [undefined], [null]])("capitalize(%p) => %p", (input) => {
-    expect(() => capitalize(input)).toThrow();
-  });
+  test.each([[""], [undefined], [null], [true], [false], [[]], [{}]])(
+    "capitalize(%p) => %p",
+    (input) => {
+      expect(() => capitalize(input)).toThrow();
+    },
+  );
 });
