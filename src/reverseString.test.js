@@ -9,7 +9,17 @@ describe("Happy cases", () => {
     ["abba", "abba"],
     ["See you there!", "!ereht uoy eeS"],
     ["54321", "12345"],
-  ])("capitalize(%p) => %p", (input, output) => {
+  ])("reverseString(%p) => %p", (input, output) => {
+    expect(reverseString(input)).toBe(output);
+  });
+});
+
+describe("Falsy and nullish", () => {
+  test.each([
+    ["", ""],
+    [undefined, ""],
+    [null, ""],
+  ])("reverseString(%p) => %p", (input, output) => {
     expect(reverseString(input)).toBe(output);
   });
 });
