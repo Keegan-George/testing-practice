@@ -34,6 +34,8 @@ describe("Non-alpha first character", () => {
   });
 });
 
-test("Non-string value throws Error", () => {
-  expect(() => capitalize(123)).toThrow();
+describe("Error handling", () => {
+  test("Non-string value throws Error", () => {
+    expect(() => capitalize(123)).toThrow();
+  });
 });
