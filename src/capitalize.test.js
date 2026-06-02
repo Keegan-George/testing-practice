@@ -7,7 +7,6 @@ describe("Happy cases", () => {
     ["b", "B"],
     ["A", "A"],
     ["it", "It"],
-    ["   ", "   "],
   ])("capitalize(%p) => %p", (input, output) => {
     expect(capitalize(input)).toBe(output);
   });
@@ -29,6 +28,7 @@ describe("Non-alpha first character", () => {
     ["2nd place", "2nd place"],
     ["...and you'll never know", "...and you'll never know"],
     ["   congratulations  ", "   congratulations  "],
+    ["   ", "   "],
   ])("capitalize(%p) => %p", (input, output) => {
     expect(capitalize(input)).toBe(output);
   });
