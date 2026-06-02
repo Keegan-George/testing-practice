@@ -35,6 +35,14 @@ test("Empty string", () => {
   expect(capitalize("")).toBe("");
 });
 
+test("Undefined", () => {
+  expect(capitalize(undefined)).toBe("");
+});
+
+test("Null", () => {
+  expect(capitalize(null)).toBe("");
+});
+
 test("No string passed", () => {
   expect(capitalize()).toBe("");
 });
