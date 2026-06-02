@@ -11,12 +11,8 @@
  * @throws {Error} Throws when the provided value is not a string.
  */
 function capitalize(str) {
-  if (!str) {
-    return "";
-  }
-
   if (typeof str !== "string") {
-    throw new Error("Please enter a string");
+    throw new Error("capitalize expects a string");
   }
 
   return str[0].toUpperCase() + str.slice(1);

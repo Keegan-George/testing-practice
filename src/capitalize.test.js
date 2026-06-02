@@ -17,18 +17,8 @@ describe("Valid inputs", () => {
   });
 });
 
-describe("Falsy and nullish", () => {
-  test.each([
-    ["", ""],
-    [undefined, ""],
-    [null, ""],
-  ])("capitalize(%p) => %p", (input, output) => {
-    expect(capitalize(input)).toBe(output);
-  });
-});
-
-describe("Error handling", () => {
-  test("Non-string value throws Error", () => {
-    expect(() => capitalize(123)).toThrow();
+describe("Invalid inputs", () => {
+  test.each([[""], [undefined], [null]])("capitalize(%p) => %p", (input) => {
+    expect(() => capitalize(input)).toThrow();
   });
 });
