@@ -1,7 +1,7 @@
 import { reverseString } from "./reverseString";
 import { test, expect, describe } from "@jest/globals";
 
-describe("Happy cases", () => {
+describe("Valid inputs", () => {
   test.each([
     ["a", "a"],
     ["A", "A"],
@@ -10,13 +10,6 @@ describe("Happy cases", () => {
     ["See you there!", "!ereht uoy eeS"],
     ["54321", "12345"],
     ["", ""],
-  ])("reverseString(%p) => %p", (input, output) => {
-    expect(reverseString(input)).toBe(output);
-  });
-});
-
-describe("Punctuation and whitespace", () => {
-  test.each([
     ["@!%&*", "*&%!@"],
     ["   ", "   "],
   ])("reverseString(%p) => %p", (input, output) => {
@@ -24,7 +17,7 @@ describe("Punctuation and whitespace", () => {
   });
 });
 
-describe("Error handling", () => {
+describe("Invalid inputs", () => {
   test.each([[undefined], [null], [123], [false], [true], [[]], [{}]])(
     "reverseString(%p) => %p",
     (input) => {
