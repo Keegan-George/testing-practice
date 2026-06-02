@@ -1,8 +1,5 @@
 function reverseString(str) {
-  if (str == "a") {
-    return "a";
-  }
-  return "b";
+  return str.split("").reverse().join("");
 }
 
 export { reverseString };

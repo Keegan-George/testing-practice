@@ -1,10 +1,12 @@
 import { reverseString } from "./reverseString";
-import { test, expect } from "@jest/globals";
+import { test, expect, describe } from "@jest/globals";
 
-test("a", () => {
-  expect(reverseString("a")).toBe("a");
-});
-
-test("b", () => {
-  expect(reverseString("b")).toBe("b");
+describe("Happy cases", () => {
+  test.each([
+    ["a", "a"],
+    ["b", "b"],
+    ["ab", "ba"],
+  ])("capitalize(%p) => %p", (input, output) => {
+    expect(reverseString(input)).toBe(output);
+  });
 });
