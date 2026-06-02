@@ -30,3 +30,7 @@ test("First character is punctuation", () => {
 test("First character is whitespace", () => {
   expect(capitalize("   congratulations  ")).toMatch("   congratulations  ");
 });
+
+test("Empty string", () => {
+  expect(capitalize("")).toMatch("");
+});
