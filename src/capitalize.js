@@ -1,7 +1,5 @@
 function capitalize(str) {
-  const chars = str.split("");
-  chars[0] = chars[0].toUpperCase();
-  return chars.join("");
+  return str[0].toUpperCase() + str.slice(1);
 }
 
 export { capitalize };
