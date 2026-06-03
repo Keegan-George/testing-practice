@@ -86,7 +86,7 @@ describe("invalid inputs", () => {
     [true, true],
     [false, false],
   ])("Inputs %p %p => error", (x, y) => {
-    for (const [name, operator] of Object.entries(operators)) {
+    for (const operator of Object.values(operators)) {
       expect(() => operator(x, y)).toThrow();
     }
   });
