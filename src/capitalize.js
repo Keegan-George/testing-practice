@@ -12,7 +12,7 @@
  */
 function capitalize(str) {
   if (typeof str !== "string") {
-    throw new Error("capitalize expects a string");
+    throw new TypeError("capitalize expects a string");
   }
 
   return str[0].toUpperCase() + str.slice(1);
