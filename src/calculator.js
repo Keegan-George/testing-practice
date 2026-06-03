@@ -21,7 +21,7 @@ const calculator = {
     validate(x);
     validate(y);
     if (y === 0) {
-      throw new Error("Cannot divide by 0");
+      throw new RangeError("Cannot divide by 0");
     }
     return x / y;
   },
