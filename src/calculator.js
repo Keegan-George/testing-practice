@@ -11,7 +11,14 @@ const calculator = (() => {
     return x * y;
   }
 
-  return { add, subtract, multiply };
+  function divide(x = 0, y = 1) {
+    if (y === 0) {
+      throw new Error("Cannot divide by 0");
+    }
+    return x / y;
+  }
+
+  return { add, subtract, multiply, divide };
 })();
 
 export { calculator };

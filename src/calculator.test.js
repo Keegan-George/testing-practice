@@ -52,3 +52,48 @@ describe("multiply", () => {
     expect(calculator.multiply(x, y)).toBe(output);
   });
 });
+
+describe("divide", () => {
+  test.each([
+    [0, 1, 0],
+    [2, 1, 2],
+    [2, 2, 1],
+    [1, 2, 0.5],
+    [-1, 2, -0.5],
+    [2.5, 2, 1.25],
+    [5, 2, 2.5],
+    [1.5, 1.5, 1],
+    [1.5, 3, 0.5],
+    [3, 1.5, 2],
+    [undefined, undefined, 0],
+  ])("divide(%p,%p) => %p", (x, y, output) => {
+    expect(calculator.divide(x, y)).toBe(output);
+  });
+});
+
+describe("divide", () => {
+  test.each([
+    [0, 1, 0],
+    [2, 1, 2],
+    [2, 2, 1],
+    [1, 2, 0.5],
+    [-1, 2, -0.5],
+    [2.5, 2, 1.25],
+    [5, 2, 2.5],
+    [1.5, 1.5, 1],
+    [1.5, 3, 0.5],
+    [3, 1.5, 2],
+    [undefined, undefined, 0],
+  ])("divide(%p,%p) => %p", (x, y, output) => {
+    expect(calculator.divide(x, y)).toBe(output);
+  });
+});
+
+describe("division by 0 errors", () => {
+  test.each([
+    [0, 0],
+    [1, 0],
+  ])("divide(%p,%p) => error ", (x, y) => {
+    expect(() => calculator.divide(x, y)).toThrow();
+  });
+});
