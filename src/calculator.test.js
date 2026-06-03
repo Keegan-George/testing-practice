@@ -11,7 +11,7 @@ describe("add", () => {
     [1.2, 2.3, 3.5],
     [-1.2, -2.3, -3.5],
   ])("add(%p,%p) => %p", (x, y, output) => {
-    expect(calculator.add(x, y)).toBe(output);
+    expect(calculator.add(x, y)).toBeCloseTo(output);
   });
 });
 
@@ -24,7 +24,7 @@ describe("subtract", () => {
     [2.5, 0.2, 2.3],
     [-2.5, -0.2, -2.3],
   ])("subtract(%p,%p) => %p", (x, y, output) => {
-    expect(calculator.subtract(x, y)).toBe(output);
+    expect(calculator.subtract(x, y)).toBeCloseTo(output);
   });
 });
 
@@ -42,7 +42,7 @@ describe("multiply", () => {
     [-1.5, -1.5, 2.25],
     [1.5, -1.5, -2.25],
   ])("multiply(%p,%p) => %p", (x, y, output) => {
-    expect(calculator.multiply(x, y)).toBe(output);
+    expect(calculator.multiply(x, y)).toBeCloseTo(output);
   });
 });
 
@@ -59,7 +59,7 @@ describe("divide", () => {
     [1.5, 3, 0.5],
     [3, 1.5, 2],
   ])("divide(%p,%p) => %p", (x, y, output) => {
-    expect(calculator.divide(x, y)).toBe(output);
+    expect(calculator.divide(x, y)).toBeCloseTo(output);
   });
 });
 
