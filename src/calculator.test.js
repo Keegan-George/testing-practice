@@ -19,3 +19,17 @@ describe("add", () => {
     expect(calculator.add(x, y)).toBe(output);
   });
 });
+
+describe("subtract", () => {
+  test.each([
+    [0, 0, 0],
+    [3, 2, 1],
+    [-1, 1, -2],
+    [1, -1, 2],
+    [2.5, 0.2, 2.3],
+    [-2.5, -0.2, -2.3],
+    [undefined, undefined, 0],
+  ])("subtract(%p,%p) => %p", (x, y, output) => {
+    expect(calculator.subtract(x, y)).toBe(output);
+  });
+});
