@@ -1,10 +1,6 @@
 import { calculator } from "./calculator";
 import { test, expect, describe } from "@jest/globals";
 
-test("add inputs", () => {
-  expect(calculator.add(1, 2)).toBe(3);
-});
-
 describe("add", () => {
   test.each([
     [0, 0, 0],
