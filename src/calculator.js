@@ -7,7 +7,11 @@ const calculator = (() => {
     return x - y;
   }
 
-  return { add, subtract };
+  function multiply(x = 0, y = 0) {
+    return x * y;
+  }
+
+  return { add, subtract, multiply };
 })();
 
 export { calculator };

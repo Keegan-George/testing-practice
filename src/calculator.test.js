@@ -33,3 +33,22 @@ describe("subtract", () => {
     expect(calculator.subtract(x, y)).toBe(output);
   });
 });
+
+describe("multiply", () => {
+  test.each([
+    [0, 0, 0],
+    [0, 1, 0],
+    [1, 0, 0],
+    [1, 1, 1],
+    [1, 2, 2],
+    [-1, 2, -2],
+    [2, -1, -2],
+    [2.5, 2, 5],
+    [1.5, 1.5, 2.25],
+    [-1.5, -1.5, 2.25],
+    [1.5, -1.5, -2.25],
+    [undefined, undefined, 0],
+  ])("multiply(%p,%p) => %p", (x, y, output) => {
+    expect(calculator.multiply(x, y)).toBe(output);
+  });
+});
