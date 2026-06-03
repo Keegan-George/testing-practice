@@ -12,6 +12,7 @@ describe("Valid inputs", () => {
     ["", ""],
     ["@!%&*", "*&%!@"],
     ["   ", "   "],
+    ["", ""],
   ])("reverseString(%p) => %p", (input, output) => {
     expect(reverseString(input)).toBe(output);
   });
