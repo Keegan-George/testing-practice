@@ -12,13 +12,14 @@ describe("Valid inputs", () => {
     ["...and you'll never know", "...and you'll never know"],
     ["   congratulations  ", "   congratulations  "],
     ["   ", "   "],
+    ["", ""],
   ])("capitalize(%p) => %p", (input, output) => {
     expect(capitalize(input)).toBe(output);
   });
 });
 
 describe("Invalid inputs", () => {
-  test.each([[""], [undefined], [null], [true], [false], [[]], [{}]])(
+  test.each([[undefined], [null], [true], [false], [[]], [{}]])(
     "capitalize(%p) => %p",
     (input) => {
       expect(() => capitalize(input)).toThrow();
