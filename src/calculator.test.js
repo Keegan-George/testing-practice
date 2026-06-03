@@ -71,3 +71,23 @@ describe("division by 0 errors", () => {
     expect(() => calculator.divide(x, y)).toThrow();
   });
 });
+
+describe("invalid inputs", () => {
+  const operators = {
+    add: calculator.add,
+    subtract: calculator.subtract,
+    multiply: calculator.multiply,
+    divide: calculator.divide,
+  };
+
+  test.each([
+    [true, false],
+    [false, true],
+    [true, true],
+    [false, false],
+  ])("Inputs %p %p => error", (x, y) => {
+    for (const [name, operator] of Object.entries(operators)) {
+      expect(() => operator(x, y)).toThrow();
+    }
+  });
+});
