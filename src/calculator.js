@@ -1,5 +1,5 @@
 const calculator = (() => {
-  function add(x, y) {
+  function add(x = 0, y = 0) {
     return x + y;
   }
 
