@@ -40,6 +40,7 @@ describe("Valid inputs", () => {
     ["A B C", 5, "F G H"],
     ["A.B.C", 5, "F.G.H"],
     ["HeLLo", 3, "KhOOr"],
+    ["Hello, World!", 3, "Khoor, Zruog!"],
     ["Testing 1 2 3 testing", 4, "Xiwxmrk 1 2 3 xiwxmrk"],
   ])("caesarCipher(%p,%p) => %p", (str, shift, output) => {
     expect(caesarCipher(str, shift)).toBe(output);
