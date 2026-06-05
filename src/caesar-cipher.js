@@ -15,7 +15,8 @@ function caesarCipher(str, shift) {
       const asciiStart = isUpper(code) ? ascii_A : ascii_a;
 
       const normalizedCode = code - asciiStart;
-      const shifted = (normalizedCode + shift) % numOfCharacters;
+      const shifted =
+        (normalizedCode + shift + numOfCharacters) % numOfCharacters;
       const newCode = shifted + asciiStart;
       return String.fromCharCode(newCode);
     })
