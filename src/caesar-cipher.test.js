@@ -18,6 +18,13 @@ describe("Valid inputs", () => {
     ["z", 0, "z"],
     ["z", 1, "a"],
     ["z", 26, "z"],
+    ["", 0, ""],
+    ["", 1, ""],
+    ["%", 1, "%"],
+    ["&", 1, "&"],
+    ["$", 1, "$"],
+    ["0", 0, "0"],
+    ["0", 1, "0"],
   ])("caesarCipher(%p,%p) => %p", (str, shift, output) => {
     expect(caesarCipher(str, shift)).toBe(output);
   });
