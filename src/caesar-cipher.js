@@ -3,18 +3,24 @@ const ascii_a = 97;
 const numOfCharacters = 26;
 
 function caesarCipher(str, shift) {
-  const charCode = str.charCodeAt();
+  const split = str.split("");
 
-  if (!isAlpha(str)) {
-    return str;
-  }
+  return split
+    .map((c) => {
+      const charCode = c.charCodeAt();
 
-  const asciiStart = isUpper(str) ? ascii_A : ascii_a;
+      if (!isAlpha(c)) {
+        return c;
+      }
 
-  const normalizedCharCode = charCode - asciiStart;
-  const shifted = (normalizedCharCode + shift) % numOfCharacters;
-  const newCode = shifted + asciiStart;
-  return String.fromCharCode(newCode);
+      const asciiStart = isUpper(c) ? ascii_A : ascii_a;
+
+      const normalizedCharCode = charCode - asciiStart;
+      const shifted = (normalizedCharCode + shift) % numOfCharacters;
+      const newCode = shifted + asciiStart;
+      return String.fromCharCode(newCode);
+    })
+    .join("");
 }
 
 function isAlpha(char) {
