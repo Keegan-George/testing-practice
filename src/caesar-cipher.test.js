@@ -1,23 +1,55 @@
 import { caesarCipher } from "./caesar-cipher";
 import { test, expect, describe } from "@jest/globals";
 
-describe("Valid inputs", () => {
+describe("Single-characters", () => {
   test.each([
     ["a", 0, "a"],
     ["a", 1, "b"],
     ["a", 25, "z"],
-    ["a", 26, "a"],
-    ["a", 27, "b"],
-    ["a", 52, "a"],
-    ["a", 53, "b"],
     ["m", 0, "m"],
     ["m", 1, "n"],
     ["m", 13, "z"],
     ["m", 14, "a"],
-    ["m", 26, "m"],
     ["z", 0, "z"],
     ["z", 1, "a"],
+    ["A", 0, "A"],
+    ["A", 1, "B"],
+    ["A", 25, "Z"],
+    ["Z", 0, "Z"],
+  ])("caesarCipher(%p,%p) => %p", (str, shift, output) => {
+    expect(caesarCipher(str, shift)).toBe(output);
+  });
+});
+
+describe("Wrap-around", () => {
+  test.each([
+    ["a", 26, "a"],
+    ["a", 27, "b"],
+    ["a", 52, "a"],
+    ["a", 53, "b"],
+    ["m", 26, "m"],
     ["z", 26, "z"],
+    ["A", 26, "A"],
+    ["A", 27, "B"],
+    ["A", 52, "A"],
+    ["Z", 26, "Z"],
+    ["A", -1, "Z"],
+    ["A", -26, "A"],
+    ["Z", -25, "A"],
+    ["Z", -26, "Z"],
+    ["Z", 1, "A"],
+    ["A", 520, "A"],
+    ["A", 260_000_000_000, "A"],
+    ["A", 260_000_000_001, "B"],
+    ["A", -260_000_000_000, "A"],
+    ["A", -260_000_000_001, "Z"],
+  ])("caesarCipher(%p,%p) => %p", (str, shift, output) => {
+    expect(caesarCipher(str, shift)).toBe(output);
+  });
+});
+
+describe("Non-alphabetic", () => {
+  test.each([
     ["", 0, ""],
     ["", 1, ""],
     ["%", 1, "%"],
@@ -25,24 +57,13 @@ describe("Valid inputs", () => {
     ["$", 1, "$"],
     ["0", 0, "0"],
     ["0", 1, "0"],
-    ["A", 0, "A"],
-    ["A", 1, "B"],
-    ["A", 25, "Z"],
-    ["A", 26, "A"],
-    ["A", 27, "B"],
-    ["A", 52, "A"],
-    ["Z", 0, "Z"],
-    ["Z", 1, "A"],
-    ["Z", 26, "Z"],
-    ["A", -1, "Z"],
-    ["A", -26, "A"],
-    ["Z", -25, "A"],
-    ["Z", -26, "Z"],
-    ["A", 520, "A"],
-    ["A", 260_000_000_000, "A"],
-    ["A", 260_000_000_001, "B"],
-    ["A", -260_000_000_000, "A"],
-    ["A", -260_000_000_001, "Z"],
+  ])("caesarCipher(%p,%p) => %p", (str, shift, output) => {
+    expect(caesarCipher(str, shift)).toBe(output);
+  });
+});
+
+describe("Full strings", () => {
+  test.each([
     ["abc", 1, "bcd"],
     ["abc", -1, "zab"],
     ["abc", 5, "fgh"],
