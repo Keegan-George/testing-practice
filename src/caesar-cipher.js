@@ -3,9 +3,8 @@ const ascii_a = 97;
 const numOfCharacters = 26;
 
 function caesarCipher(str, shift) {
-  const split = str.split("");
-
-  return split
+  return str
+    .split("")
     .map((c) => {
       const charCode = c.charCodeAt();
 
