@@ -34,6 +34,12 @@ describe("Valid inputs", () => {
     ["Z", 0, "Z"],
     ["Z", 1, "A"],
     ["Z", 26, "Z"],
+    ["A", -1, "Z"],
+    ["A", -26, "A"],
+    ["Z", -25, "A"],
+    ["Z", -26, "Z"],
+    ["A", 520, "A"],
+    ["A", 260_000_000_000, "A"],
     ["abc", 1, "bcd"],
     ["abc", 5, "fgh"],
     ["ABC", 5, "FGH"],
@@ -42,10 +48,6 @@ describe("Valid inputs", () => {
     ["HeLLo", 3, "KhOOr"],
     ["Hello, World!", 3, "Khoor, Zruog!"],
     ["Testing 1 2 3 testing", 4, "Xiwxmrk 1 2 3 xiwxmrk"],
-    ["A", -1, "Z"],
-    ["A", -26, "A"],
-    ["Z", -25, "A"],
-    ["Z", -26, "Z"],
   ])("caesarCipher(%p,%p) => %p", (str, shift, output) => {
     expect(caesarCipher(str, shift)).toBe(output);
   });
