@@ -6,16 +6,16 @@ function caesarCipher(str, shift) {
   return str
     .split("")
     .map((c) => {
-      const charCode = c.charCodeAt();
+      const code = c.charCodeAt();
 
-      if (!isAlpha(charCode)) {
+      if (!isAlpha(code)) {
         return c;
       }
 
-      const asciiStart = isUpper(charCode) ? ascii_A : ascii_a;
+      const asciiStart = isUpper(code) ? ascii_A : ascii_a;
 
-      const normalizedCharCode = charCode - asciiStart;
-      const shifted = (normalizedCharCode + shift) % numOfCharacters;
+      const normalizedCode = code - asciiStart;
+      const shifted = (normalizedCode + shift) % numOfCharacters;
       const newCode = shifted + asciiStart;
       return String.fromCharCode(newCode);
     })
