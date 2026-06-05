@@ -14,11 +14,10 @@ function caesarCipher(str, shift) {
 
       const asciiStart = isUpper(code) ? ascii_A : ascii_a;
 
-      const normalizedCode = code - asciiStart;
-      const shifted =
-        (normalizedCode + shift + numOfCharacters) % numOfCharacters;
-      const newCode = shifted + asciiStart;
-      return String.fromCharCode(newCode);
+      const normalized = code - asciiStart;
+      const shifted = (normalized + shift + numOfCharacters) % numOfCharacters;
+      const shiftedCode = shifted + asciiStart;
+      return String.fromCharCode(shiftedCode);
     })
     .join("");
 }
