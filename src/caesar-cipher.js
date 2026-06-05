@@ -9,11 +9,11 @@ function caesarCipher(str, shift) {
     .map((c) => {
       const charCode = c.charCodeAt();
 
-      if (!isAlpha(c)) {
+      if (!isAlpha(charCode)) {
         return c;
       }
 
-      const asciiStart = isUpper(c) ? ascii_A : ascii_a;
+      const asciiStart = isUpper(charCode) ? ascii_A : ascii_a;
 
       const normalizedCharCode = charCode - asciiStart;
       const shifted = (normalizedCharCode + shift) % numOfCharacters;
@@ -23,15 +23,11 @@ function caesarCipher(str, shift) {
     .join("");
 }
 
-function isAlpha(char) {
-  const code = char.charCodeAt();
-
+function isAlpha(code) {
   return (code >= 65 && code <= 90) || (code >= 97 && code <= 122);
 }
 
-function isUpper(char) {
-  const code = char.charCodeAt();
-
+function isUpper(code) {
   return code >= 65 && code <= 90;
 }
 
