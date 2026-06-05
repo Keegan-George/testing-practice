@@ -79,3 +79,11 @@ describe("Full strings", () => {
     expect(caesarCipher(str, shift)).toBe(output);
   });
 });
+
+test("cipher can be reversed", () => {
+  const original = "Testing 1 2 3 testing";
+  const encoded = caesarCipher(original, 4);
+  const decoded = caesarCipher(encoded, -4);
+
+  expect(original).toBe(decoded);
+});
