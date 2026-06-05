@@ -80,6 +80,29 @@ describe("Full strings", () => {
   });
 });
 
+describe("Invalid inputs", () => {
+  test.each([
+    [null, 0],
+    [undefined, 0],
+    [NaN, 0],
+    [true, 0],
+    [false, 0],
+    [1, 0],
+    [{}, 0],
+    ["a", null],
+    ["a", undefined],
+    ["a", NaN],
+    ["a", true],
+    ["a", false],
+    ["a", {}],
+    ["a", "1"],
+    ["a", "a"],
+    ["a", 0.5],
+  ])("caesarCipher(%p,%p) throws", (str, shift) => {
+    expect(() => caesarCipher(str, shift)).toThrow();
+  });
+});
+
 test("cipher can be reversed", () => {
   const original = "Testing 1 2 3 testing";
   const encoded = caesarCipher(original, 4);

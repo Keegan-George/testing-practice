@@ -16,6 +16,22 @@ const numOfCharacters = 26;
  * @returns {string} The encoded string after applying the Caesar cipher.
  */
 function caesarCipher(str, shift) {
+  if (typeof str !== "string") {
+    throw new TypeError(
+      `caesarCipher expects input to be a string, received ${typeof str}`,
+    );
+  }
+
+  if (
+    typeof shift !== "number" ||
+    Number.isNaN(shift) ||
+    !Number.isInteger(shift)
+  ) {
+    throw new TypeError(
+      `caesarCipher expects shift to be an integer, received ${typeof shift}`,
+    );
+  }
+
   shift = shift % numOfCharacters;
 
   return str
