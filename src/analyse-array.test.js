@@ -14,6 +14,7 @@ describe("valid inputs", () => {
     [[-10, -5, -2]],
     [[1.2, 4.5, 9.8]],
     [[1, -3.6, 2.5]],
+    [[-2.3, 1.8, -4.7]],
   ])("analyseArray(%p)", (arr) => {
     expect(analyseArray(arr)).toEqual({
       min: Math.min(...arr),
@@ -52,8 +53,8 @@ describe("invalid array inputs", () => {
 describe("non-array inputs", () => {
   test.each([[""], ["a"], [0], [false], [true], [undefined], [null], [NaN]])(
     "analyseArray(%p) => throws TypeError",
-    (arr) => {
-      expect(() => analyseArray(arr)).toThrow(TypeError);
+    (input) => {
+      expect(() => analyseArray(input)).toThrow(TypeError);
     },
   );
 });
