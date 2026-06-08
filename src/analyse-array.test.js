@@ -38,6 +38,9 @@ describe("invalid inputs", () => {
     [[undefined, undefined]],
     [[NaN]],
     [[NaN, NaN]],
+    [["1", 2, "5"]],
+    [["A", 3, 4, 6]],
+    [[false, true, 5, 5, 10]],
   ])("analyzeArray(%p) => throws", (arr) => {
     expect(() => analyseArray(arr)).toThrow();
   });
