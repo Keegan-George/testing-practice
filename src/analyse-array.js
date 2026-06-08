@@ -1,4 +1,10 @@
 function analyseArray(arr) {
+  if (!Array.isArray(arr)) {
+    throw new TypeError(
+      `analyseArray expects an Array, received ${typeof arr}`,
+    );
+  }
+
   if (arr.some((n) => typeof n !== "number" || Number.isNaN(n))) {
     throw new TypeError("Array must contains only numbers");
   }
