@@ -1,3 +1,20 @@
+/**
+ * Analyse a numeric array and return its minimum, maximum, length, and average.
+ *
+ * @param {number[]} arr - A non-empty array containing only numeric values.
+ *
+ * @returns {{ min: number, max: number, length: number, average: number }}
+ * An object describing the array:
+ *  - `min`: the smallest number in the array
+ *  - `max`: the largest number in the array
+ *  - `length`: the number of elements in the array
+ *  - `average`: the arithmetic mean of the array's values
+ *
+ * @throws {RangeError} If the array is empty.
+ * @throws {TypeError} If the input is not an array.
+ * @throws {TypeError} If the array contains non-numeric values or NaN.
+ */
+
 function analyseArray(arr) {
   if (!Array.isArray(arr)) {
     throw new TypeError(
