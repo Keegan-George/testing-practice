@@ -5,6 +5,10 @@ function analyseArray(arr) {
     );
   }
 
+  if (arr.length === 0) {
+    throw new RangeError("analyseArray expects a non-empty array");
+  }
+
   if (arr.some((n) => typeof n !== "number" || Number.isNaN(n))) {
     throw new TypeError("Array must contains only numbers");
   }

@@ -10,7 +10,6 @@ describe("valid inputs", () => {
     [[0, 2]],
     [[1, 1, 1]],
     [[1, 2, 3]],
-    [[]],
   ])("analyzeArray(%p)", (arr) => {
     expect(analyseArray(arr)).toEqual({
       min: Math.min(...arr),
@@ -41,6 +40,7 @@ describe("invalid inputs", () => {
     [["1", 2, "5"]],
     [["A", 3, 4, 6]],
     [[false, true, 5, 5, 10]],
+    [[]],
     [""],
     ["a"],
     [0],
