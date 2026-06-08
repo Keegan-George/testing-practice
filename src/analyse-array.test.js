@@ -40,9 +40,8 @@ describe("invalid array inputs", () => {
     [["1", 2, "5"]],
     [["A", 3, 4, 6]],
     [[false, true, 5, 5, 10]],
-    [[]],
   ])("analyzeArray(%p) => throws", (arr) => {
-    expect(() => analyseArray(arr)).toThrow();
+    expect(() => analyseArray(arr)).toThrow(TypeError);
   });
 });
 
@@ -50,7 +49,11 @@ describe("non-array inputs", () => {
   test.each([[""], ["a"], [0], [false], [true], [undefined], [null], [NaN]])(
     "analyzeArray(%p) => throws",
     (arr) => {
-      expect(() => analyseArray(arr)).toThrow();
+      expect(() => analyseArray(arr)).toThrow(TypeError);
     },
   );
+});
+
+test("empty array", () => {
+  expect(() => analyseArray([]).throw(RangeError));
 });
