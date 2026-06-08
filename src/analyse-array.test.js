@@ -22,3 +22,17 @@ describe("valid inputs", () => {
     });
   });
 });
+
+describe("invalid inputs", () => {
+  test.each([
+    [["0"]],
+    [["0", "0"]],
+    [[false]],
+    [[true]],
+    [[false, false]],
+    [[true, true]],
+    [["a", "b"]],
+  ])("analyzeArray(%p) => throws", (arr) => {
+    expect(() => analyseArray(arr)).toThrow();
+  });
+});
