@@ -12,10 +12,10 @@ function analyseArray(arr) {
   const average = sum / length;
 
   return {
-    min: min,
-    max: max,
-    length: length,
-    average: average,
+    min,
+    max,
+    length,
+    average,
   };
 }
 
