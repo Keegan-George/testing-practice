@@ -22,7 +22,7 @@ describe("valid inputs", () => {
   });
 });
 
-describe("invalid inputs", () => {
+describe("invalid array inputs", () => {
   test.each([
     [["0"]],
     [["0", "0"]],
@@ -52,4 +52,13 @@ describe("invalid inputs", () => {
   ])("analyzeArray(%p) => throws", (arr) => {
     expect(() => analyseArray(arr)).toThrow();
   });
+});
+
+describe("non-array inputs", () => {
+  test.each([[""], ["a"], [0], [false], [true], [undefined], [null], [NaN]])(
+    "analyzeArray(%p) => throws",
+    (arr) => {
+      expect(() => analyseArray(arr)).toThrow();
+    },
+  );
 });
