@@ -10,12 +10,13 @@ describe("valid inputs", () => {
     [[0, 2]],
     [[1, 1, 1]],
     [[1, 2, 3]],
+    [[]],
   ])("analyzeArray(%p)", (arr) => {
     expect(analyseArray(arr)).toEqual({
       min: Math.min(...arr),
       max: Math.max(...arr),
       average:
-        arr.reduce((accumulator, current) => accumulator + current) /
+        arr.reduce((accumulator, current) => accumulator + current, 0) /
         arr.length,
       length: arr.length,
     });
