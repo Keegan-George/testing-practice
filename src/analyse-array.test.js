@@ -59,5 +59,5 @@ describe("non-array inputs", () => {
 });
 
 test("empty array throws RangeError", () => {
-  expect(() => analyseArray([]).throw(RangeError));
+  expect(() => analyseArray([])).toThrow(RangeError);
 });
