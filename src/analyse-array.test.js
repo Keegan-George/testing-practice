@@ -10,7 +10,11 @@ describe("valid inputs", () => {
     [[0, 2]],
     [[1, 1, 1]],
     [[1, 2, 3]],
-  ])("analyzeArray(%p)", (arr) => {
+    [[-1, -2, 3]],
+    [[-10, -5, -2]],
+    [[1.2, 4.5, 9.8]],
+    [[0, -3.6, 2.5]],
+  ])("analyseArray(%p)", (arr) => {
     expect(analyseArray(arr)).toEqual({
       min: Math.min(...arr),
       max: Math.max(...arr),
@@ -40,20 +44,20 @@ describe("invalid array inputs", () => {
     [["1", 2, "5"]],
     [["A", 3, 4, 6]],
     [[false, true, 5, 5, 10]],
-  ])("analyzeArray(%p) => throws", (arr) => {
+  ])("analyseArray(%p) => throws TypeError", (arr) => {
     expect(() => analyseArray(arr)).toThrow(TypeError);
   });
 });
 
 describe("non-array inputs", () => {
   test.each([[""], ["a"], [0], [false], [true], [undefined], [null], [NaN]])(
-    "analyzeArray(%p) => throws",
+    "analyseArray(%p) => throws TypeError",
     (arr) => {
       expect(() => analyseArray(arr)).toThrow(TypeError);
     },
   );
 });
 
-test("empty array", () => {
+test("empty array throws RangeError", () => {
   expect(() => analyseArray([]).throw(RangeError));
 });
