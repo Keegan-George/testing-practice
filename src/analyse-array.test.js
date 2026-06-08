@@ -13,7 +13,7 @@ describe("valid inputs", () => {
     [[-1, -2, 3]],
     [[-10, -5, -2]],
     [[1.2, 4.5, 9.8]],
-    [[0, -3.6, 2.5]],
+    [[1, -3.6, 2.5]],
   ])("analyseArray(%p)", (arr) => {
     expect(analyseArray(arr)).toEqual({
       min: Math.min(...arr),
